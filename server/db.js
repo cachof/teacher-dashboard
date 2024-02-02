@@ -7,7 +7,7 @@ const pool = new Pool({
     password: "practice123",
     host: "localhost",
     port: 5432, 
-    database: "perntodo"
+    database: "teacher_dashboard"
 })
 
 module.exports = pool;
