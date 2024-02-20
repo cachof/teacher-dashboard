@@ -24,13 +24,13 @@ export const SidebarData = [
   },
   {
     title: "Assignments",
-    path: "/view-assignments",
+    path: "/class/1/view-assignments",
     icons: <FaIcons.FaFileArchive />,
     cName: "nav-text",
   },
   {
     title: "Add Assignment",
-    path: "/add-assignment",
+    path: "/class/1/assignment/add",
     icons: <FaIcons.FaPlusSquare />,
     cName: "nav-text",
   },

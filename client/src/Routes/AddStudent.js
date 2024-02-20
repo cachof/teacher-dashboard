@@ -51,7 +51,6 @@ function AddStudent() {
         <h1>Add New Student</h1>
         <form action="d-flex mt-5" onSubmit={onSubmitForm}>
           <div className="form-group">
-            {/* <input type="hidden" name="class_id" value={class_id} /> */}
             <label>First Name:</label>
             <input
               type="text"

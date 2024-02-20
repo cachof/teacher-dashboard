@@ -8,15 +8,15 @@ function ViewStudent() {
   let { class_id } = useParams();
   const navigate = useNavigate();
 
-  const deleteTodo = async (id) => {
+  const deleteStudent = async (id) => {
     try {
-      const deleteTodo = await fetch(
+      const deleteStudent = await fetch(
         `http://localhost:5000/api/delete-student/${id}`,
         {
           method: "DELETE",
         }
       );
-      if (deleteTodo.ok) {
+      if (deleteStudent.ok) {
         console.log("Student deleted successfully");
         navigate(`/class/${class_id}`);
       } else {
@@ -46,12 +46,12 @@ function ViewStudent() {
 
   return (
     <>
-      <div class="w-75">
-        <table class="table mx-5 text-center">
+      <div className="w-75">
+        <table className="table mx-5 text-center">
           <thead>
             <tr>
               <th>
-                <h1 class="text-start">
+                <h1 className="text-start">
                   {student.first_name} {student.last_name}
                 </h1>
               </th>
@@ -61,7 +61,7 @@ function ViewStudent() {
               </th>
             </tr>
           </thead>
-          <thead class="thead-light">
+          <thead className="thead-light">
             <tr>
               <th>Date</th>
               <th>Account Activity</th>
@@ -88,11 +88,11 @@ function ViewStudent() {
         </table>
         <button
           className="btn btn-danger mt-1 px-3 float-right"
-          onClick={() => deleteTodo(student_id)}
+          onClick={() => deleteStudent(student_id)}
         >
           Delete Student
         </button>
-      </div>
+      </div> 
     </>
   );
 }

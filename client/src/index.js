@@ -16,6 +16,7 @@ import Navbar from "./components/Navbar.js";
 import ViewStudent from "./Routes/ViewStudent.js";
 import ViewAssignments from "./Routes/ViewAssignments.js";
 import AddAssignment from "./Routes/AddAssignment.js";
+import ViewOneAssignment from "./Routes/ViewOneAssignment.js";
 
 const AppLayout = () => (
   <>
@@ -28,14 +29,24 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<AppLayout />}>
       <Route path="/" element={<Home />} />
-      <Route path="/class/:class_id/student/add" element={<AddStudent />} />;
       <Route path="/class/:class_id" element={<ViewClass />} />
       <Route
         path="/class/:class_id/student/:student_id"
         element={<ViewStudent />}
       />
-      <Route path="/view-assignments" element={<ViewAssignments />} />
-      <Route path="/add-assignment" element={<AddAssignment />} />
+      <Route path="/class/:class_id/student/add" element={<AddStudent />} />;
+      <Route
+        path="/class/:class_id/view-assignments"
+        element={<ViewAssignments />}
+      />
+      <Route
+        path="/class/:class_id/assignment/:assignment_id"
+        element={<ViewOneAssignment />}
+      />
+      <Route
+        path="/class/:class_id/assignment/add"
+        element={<AddAssignment />}
+      />
     </Route>
   )
 );

@@ -10,23 +10,28 @@ function ViewAssignments() {
 
   const getAssignments = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/view-assignments");
+      const response = await fetch(
+        "http://localhost:5000/api/view-assignments"
+      );
       const jsonData = await response.json();
       console.log(jsonData);
       setAssignments(jsonData);
     } catch (error) {
       console.error(error.message);
     }
-  }
+  };
 
-    useEffect(() => {
-      getAssignments();
-    }, []);
+  useEffect(() => {
+    getAssignments();
+  }, []);
 
   return (
     <>
       <div id="published" className="w-75">
-        <AssignmentTable assignments={assignments} />
+        <AssignmentTable
+          assignments={assignments}
+          refreshAssignments={getAssignments}
+        />
       </div>
       <div id="drafts" className="w-75"></div>
     </>

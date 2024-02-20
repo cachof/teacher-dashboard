@@ -64,6 +64,16 @@ VALUES ('Addition', 'Use addition to answer these questions', '2024-01-09', true
     (SELECT class_id FROM Classes WHERE topic='Math')
     );
 
+INSERT INTO Assignments (assignment_title, instructions, due_date, is_published, class_id)
+VALUES ('Subtraction', 'Use Subtraction to answer these questions', '2025-01-09', true,
+    (SELECT class_id FROM Classes WHERE topic='Math')
+    );
+
+INSERT INTO Assignments (assignment_title, instructions, due_date, is_published, class_id)
+VALUES ('Division', 'Use Division to answer these questions', '2024-05-09', false,
+    (SELECT class_id FROM Classes WHERE topic='Math')
+    );
+
 INSERT INTO Questions(question_text, correct_answer, point_value, assignment_id)
 VALUES
     ('10 x 3', '30', '5', 
@@ -75,3 +85,24 @@ VALUES
     ('13 x 7', '91', '10', 
     (SELECT assignment_id FROM Assignments WHERE assignment_title='Multiplication')
     );
+
+-- Inserting a question for addition
+INSERT INTO Questions(question_text, correct_answer, point_value, assignment_id)
+VALUES
+    ('5 + 8', '13', '5', 
+    (SELECT assignment_id FROM Assignments WHERE assignment_title='Addition')
+);
+
+-- Inserting another question for addition
+INSERT INTO Questions(question_text, correct_answer, point_value, assignment_id)
+VALUES
+    ('15 + 23', '38', '7', 
+    (SELECT assignment_id FROM Assignments WHERE assignment_title='Addition')
+);
+
+-- Inserting yet another question for addition
+INSERT INTO Questions(question_text, correct_answer, point_value, assignment_id)
+VALUES
+    ('40 + 17', '57', '8', 
+    (SELECT assignment_id FROM Assignments WHERE assignment_title='Addition')
+);

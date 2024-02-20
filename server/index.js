@@ -73,6 +73,60 @@ app.get("/api/view-assignments", async (req, res) => {
     }
 })
 
+// GET one assignment
+app.get("/api/view-assignment/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const questions = await pool.query("SELECT * FROM Questions WHERE assignment_id = $1",
+        [id])
+        const assignment = await pool.query(
+          "SELECT * FROM assignments WHERE assignment_id = $1", [id]
+        );
+        const result = {
+            assignment: assignment.rows[0], 
+            questions: questions.rows,
+        }
+
+        res.json(result);
+    } catch (error) {
+        console.error(error.message);
+    }
+} )
+
+// POST/Create student
+app.post("/api/add-assignment", async(req, res) => {
+    try {
+        const { assignment_title, instructions, due_date, is_published } = req.body;
+        const newAssignment = await pool.query(
+          "INSERT INTO Assignments (assignment_title, instructions, due_date, is_published, class_id) VALUES ($1, $2, $3, $4, (SELECT class_id FROM Classes WHERE topic='Math') RETURNING *",
+          [assignment_title, instructions, due_date, is_published]
+        );
+
+        res.json(newAssignment.rows[0]);
+        
+    } catch (error) {
+        console.error(error.message);
+    }
+})
+
+// DELETE assignment
+app.delete("/api/delete-assignment/:id", async(req, res) => {
+    try {
+        const {id} = req.params;
+        const deleteStudent = await pool.query(
+            "DELETE FROM Assignments WHERE assignment_id = $1;",
+            [id]
+        );
+        res.status(200).json({ message: "Assignment was deleted" });
+    } catch (error) {
+        console.error(error.message);
+    }
+})
+
+
+
+
+
 
 app.listen(5000, () => {
     console.log("server has started on port 5000")

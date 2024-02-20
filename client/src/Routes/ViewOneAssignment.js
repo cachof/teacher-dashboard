@@ -1,9 +1,63 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import QuestionsTable from "../components/QuestionsTable";
 
 function ViewOneAssignment() {
+  const [questions, setQuestions] = useState([]);
+  const [assignment, setAssignment] = useState({});
+  let { assignment_id } = useParams();
+
+  //console.log(assignment_id);
+
+  const getAssignmentAndQuestions = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/view-assignment/" + assignment_id
+      );
+      //console.log("fetched");
+      const jsonData = await response.json();
+      //console.log("retreived");
+      //console.log(jsonData);
+      setQuestions(jsonData.questions);
+      setAssignment(jsonData.assignment);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  function formatDate(date) {
+    const parsedDueDate = new Date(date);
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return parsedDueDate.toLocaleDateString("en-US", options);
+  }
+
+  useEffect(() => {
+    getAssignmentAndQuestions();
+  }, []);
+
   return (
-    <div>ViewOneAssignment</div>
-  )
+    <>
+      <div className="w-75">
+        <div>
+          <button className="btn btn-success mt-1 px-3 float-right">
+            Edit
+          </button>
+        </div>
+        <div className="mx-5">
+          <h1>{assignment.assignment_title}</h1>
+          <p>Instructions: {assignment.instructions}</p>
+          <p>Due Date: {formatDate(assignment.due_date)}</p>
+        </div>
+        <div>
+          <QuestionsTable questions={questions} />
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default ViewOneAssignment
+export default ViewOneAssignment;

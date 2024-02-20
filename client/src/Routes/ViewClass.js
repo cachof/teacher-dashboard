@@ -25,7 +25,7 @@ function ViewClass() {
 
   return (
     <>
-      <div className="w-75">
+      <div className="w-75 m-5">
         <h1 className="mx-5">Classroom</h1>
         <table className="table mx-5 text-center">
           <thead className="thead-light">
@@ -66,4 +66,3 @@ function ViewClass() {
 }
 
 export default ViewClass;
-
