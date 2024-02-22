@@ -7,17 +7,12 @@ function ViewOneAssignment() {
   const [assignment, setAssignment] = useState({});
   let { assignment_id } = useParams();
 
-  //console.log(assignment_id);
-
   const getAssignmentAndQuestions = async () => {
     try {
       const response = await fetch(
         "http://localhost:5000/api/view-assignment/" + assignment_id
       );
-      //console.log("fetched");
       const jsonData = await response.json();
-      //console.log("retreived");
-      //console.log(jsonData);
       setQuestions(jsonData.questions);
       setAssignment(jsonData.assignment);
     } catch (error) {

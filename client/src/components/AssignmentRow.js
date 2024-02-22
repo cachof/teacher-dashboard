@@ -70,9 +70,9 @@ function AssignmentRow({ assignment, refresh }) {
           <FaIcons.FaEdit />
         </td>
         <td>
-          
-            <FaIcons.FaTrash onClick={() => deleteAssignment(assignment.assignment_id)}/>
-          
+          <FaIcons.FaTrash
+            onClick={() => deleteAssignment(assignment.assignment_id)}
+          />
         </td>
       </tr>
     </>

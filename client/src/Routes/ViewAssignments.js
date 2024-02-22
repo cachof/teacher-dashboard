@@ -6,8 +6,6 @@ import AssignmentTable from "../components/AssignmentTable";
 function ViewAssignments() {
   const [assignments, setAssignments] = useState([]);
 
-  let { class_id } = useParams();
-
   const getAssignments = async () => {
     try {
       const response = await fetch(

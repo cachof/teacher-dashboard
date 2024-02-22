@@ -35,6 +35,9 @@ function AddStudent() {
 
       console.log(student);
       // Check if the request was successful before redirecting
+
+      // Notes for add assignment:
+      // window.location = `/class/${class_id}/assignment/${response.data.id}`
       if (response.ok) {
         window.location = `/class/${class_id}`;
       } else {
