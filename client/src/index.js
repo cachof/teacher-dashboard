@@ -17,6 +17,7 @@ import ViewStudent from "./Routes/ViewStudent.js";
 import ViewAssignments from "./Routes/ViewAssignments.js";
 import AddAssignment from "./Routes/AddAssignment.js";
 import ViewOneAssignment from "./Routes/ViewOneAssignment.js";
+import EditAssignment from "./Routes/EditAssignment.js";
 
 const AppLayout = () => (
   <>
@@ -47,7 +48,12 @@ const router = createBrowserRouter(
         path="/class/:class_id/assignment/add"
         element={<AddAssignment />}
       />
+      <Route
+        path="/class/:class_id/assignment/:assignment_id/edit"
+        element={<EditAssignment />}
+      />
     </Route>
+    
   )
 );
 

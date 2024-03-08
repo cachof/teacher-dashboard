@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import QuestionsTable from "../components/QuestionsTable";
 
 function ViewOneAssignment() {
   const [questions, setQuestions] = useState([]);
   const [assignment, setAssignment] = useState({});
-  let { assignment_id } = useParams();
+  let { assignment_id, class_id } = useParams();
 
   const getAssignmentAndQuestions = async () => {
     try {
@@ -38,9 +38,12 @@ function ViewOneAssignment() {
     <>
       <div className="w-75">
         <div>
-          <button className="btn btn-success mt-1 px-3 float-right">
-            Edit
-          </button>
+          <Link to={`/class/${class_id}/assignment/${assignment_id}/edit`}>
+            <button className="btn btn-success mt-1 px-3 float-end">
+              Edit
+            </button>
+            {/* <EditAssignment assignmentData = {assignment} questionData = {questions} */}
+          </Link>
         </div>
         <div className="mx-5">
           <h1>{assignment.assignment_title}</h1>

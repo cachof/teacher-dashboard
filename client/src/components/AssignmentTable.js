@@ -28,7 +28,7 @@ function AssignmentTable({ assignments, refreshAssignments }) {
         </tbody>
       </table>
       <Link to={`/class/${class_id}/assignment/add`}>
-        <button className="btn btn-success mt-1 px-3 float-right">
+        <button className="btn btn-success mt-1 px-3 float-end">
           Add Assignment
         </button>
       </Link>

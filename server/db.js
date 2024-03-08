@@ -8,6 +8,7 @@ const pool = new Pool({
     host: "localhost",
     port: 5432, 
     database: "teacher_dashboard"
+    // query: ...
 })
 
 module.exports = pool;

@@ -56,7 +56,7 @@ function ViewClass() {
           </tbody>
         </table>
         <Link to={`/class/${class_id}/student/add`}>
-          <button className="btn btn-success mt-1 px-3 float-right">
+          <button className="btn btn-success mt-1 px-3 float-end">
             Add Student
           </button>
         </Link>

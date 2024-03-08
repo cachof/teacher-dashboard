@@ -26,6 +26,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    z-index: 1000;
 }
 
 .menu-bars {
@@ -89,8 +90,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    z-index: 1000;
 }
 
 span {
     margin-left: 16px;
+}
+
+.form-floating {
+    z-index: 999;
 }

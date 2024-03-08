@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
+import DeleteModal from "./DeleteModal";
 
 function AssignmentRow({ assignment, refresh }) {
   const currentDate = new Date();
@@ -8,31 +9,6 @@ function AssignmentRow({ assignment, refresh }) {
   let { class_id } = useParams();
   const navigate = useNavigate();
   const [assignments, setAssignment] = useState([]);
-
-  const deleteAssignment = async (id) => {
-    try {
-      const deleteAssignment = await fetch(
-        `http://localhost:5000/api/delete-assignment/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
-
-      if (deleteAssignment.ok) {
-        console.log("Assignment deleted successfully");
-        setAssignment(
-          assignments.filter((assignment) => assignment.assignment_id !== id)
-        );
-        refresh();
-        // navigate(`/class/${class_id}/view-assignments`);
-        // window.location.reload();
-      } else {
-        console.error("Failed to delete student");
-      }
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
 
   function formatDate(date) {
     const parsedDueDate = new Date(date);
@@ -67,12 +43,20 @@ function AssignmentRow({ assignment, refresh }) {
         <td>{getStatus(assignment)}</td>
         <td>{formatDate(assignment.due_date)}</td>
         <td>
-          <FaIcons.FaEdit />
+          <Link
+            to={{
+              pathname: `/class/${assignment.class_id}/assignment/${assignment.assignment_id}/edit`,
+            }}
+          >
+            <FaIcons.FaEdit />
+          </Link>
         </td>
         <td>
           <FaIcons.FaTrash
-            onClick={() => deleteAssignment(assignment.assignment_id)}
+            data-bs-toggle="modal"
+            data-bs-target="#deleteModal"
           />
+          <DeleteModal target_id={assignment.assignment_id} />
         </td>
       </tr>
     </>

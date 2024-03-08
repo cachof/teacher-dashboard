@@ -87,12 +87,12 @@ function ViewStudent() {
           </tbody>
         </table>
         <button
-          className="btn btn-danger mt-1 px-3 float-right"
+          className="btn btn-danger mt-1 px-3 float-end"
           onClick={() => deleteStudent(student_id)}
         >
           Delete Student
         </button>
-      </div> 
+      </div>
     </>
   );
 }
