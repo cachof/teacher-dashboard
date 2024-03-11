@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
 
 function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
-  console.log(assignmentData);
 
   // handle drag
   const dragQuestion = useRef(0);
@@ -33,12 +32,7 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
     setAssignment(assignmentData);
   }, [assignmentData]);
 
-  // console.log(`Before toggle: ${assignment.is_published}`);
-  // destructure assignment
-
-  console.log(assignment);
   const { assignment_title, instructions, is_published, due_date } = assignment;
-  // set values in form
 
   // what to do when assignment is added (save button)
   const handleAssignmentAdd = (e) => {
@@ -47,7 +41,6 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
       ...prevAssignment,
       [name]: value,
     }));
-    // console.log(assignment);
   };
 
   // question template
@@ -64,7 +57,6 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
     setQuestionsList(questionsData);
   }, [questionsData]);
 
-  console.log(questionsList);
 
   // what to do when "Add Question" is clicked
   const handleQuestionAdd = (e) => {
@@ -93,17 +85,13 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
     setIsPublished(assignmentData.is_published);
   }, [assignmentData]);
   const handleStatusChange = () => {
-    // Toggle setIsPublished outside the setAssignment callback
     const updatedIsPublished = !isPublished;
     setIsPublished(updatedIsPublished);
-
-    // Use the updatedIsPublished value in the setAssignment callback
     setAssignment((prevAssignment) => ({
       ...prevAssignment,
       is_published: updatedIsPublished,
     }));
 
-    console.log(`After toggle: ${updatedIsPublished}`);
   };
 
   const onSubmitWrapper = (e) => {
@@ -146,7 +134,6 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
 
         <form action="d-inline mt-5" onSubmit={onSubmitWrapper}>
           <div id="assignmentDetails">
-            {/* <form action="d-flex mt-5"> */}
             <div className="float-end d-inline">
               <div className="form-check float-end d-inline">
                 <button type="submit" className="btn btn-primary mb-2">
@@ -202,11 +189,9 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
                 id="due_date"
               />
             </div>
-            {/* </form> */}
           </div>
 
           <div className="form-field pt-5">
-            {/* <form action="d-flex mt-5 inline"> */}
             {questionsList.map((singleQuestion, index) => (
               <div
                 key={index}
@@ -268,7 +253,6 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
                 </div>
               </div>
             ))}
-            {/* </form> */}
           </div>
         </form>
       </div>

@@ -26,10 +26,8 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
     is_published: false,
     class_id: class_id,
   });
-  console.log(`Before toggle: ${assignment.is_published}`);
-  // destructure assignment
+
   const { assignment_title, instructions, is_published, due_date } = assignment;
-  // set values in form
 
   // what to do when assignment is added (save button)
   const handleAssignmentAdd = (e) => {
@@ -50,8 +48,6 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
 
   //setQuestionsList
   const [questionsList, setQuestionsList] = useState([initialQuestion]);
-
-  console.log(questionsList);
 
   // what to do when "Add Question" is clicked
   const handleQuestionAdd = (e) => {
@@ -77,17 +73,13 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
   // what to do when toggling between published and draft
   const [isPublished, setIsPublished] = useState(false);
   const handleStatusChange = () => {
-    // Toggle setIsPublished outside the setAssignment callback
     const updatedIsPublished = !isPublished;
     setIsPublished(updatedIsPublished);
-
-    // Use the updatedIsPublished value in the setAssignment callback
     setAssignment((prevAssignment) => ({
       ...prevAssignment,
       is_published: updatedIsPublished,
     }));
 
-    console.log(`After toggle: ${updatedIsPublished}`);
   };
 
   const onSubmitWrapper = (e) => {
@@ -112,7 +104,6 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
         </h1>
         <form action="d-inline mt-5" onSubmit={onSubmitWrapper}>
           <div id="assignmentDetails">
-            {/* <form action="d-flex mt-5"> */}
             <div className="float-end d-inline">
               <div className="form-check float-end d-inline">
                 <button type="submit" className="btn btn-primary mb-2">
@@ -168,11 +159,9 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
                 id="due_date"
               />
             </div>
-            {/* </form> */}
           </div>
 
           <div className="form-field pt-5">
-            {/* <form action="d-flex mt-5 inline"> */}
             {questionsList.map((singleQuestion, index) => (
               <div
                 key={index}
@@ -234,7 +223,6 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
                 </div>
               </div>
             ))}
-            {/* </form> */}
           </div>
         </form>
       </div>

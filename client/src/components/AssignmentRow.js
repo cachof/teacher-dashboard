@@ -16,9 +16,7 @@ function AssignmentRow({ assignment, refresh }) {
   }
 
   function getStatus(assignment) {
-    console.log(currentDate);
     const parsedDueDate = new Date(assignment.due_date);
-    console.log(parsedDueDate);
     if (parsedDueDate < currentDate) {
       return "Past Due";
     } else if (parsedDueDate > currentDate && assignment.is_published) {
@@ -54,7 +52,7 @@ function AssignmentRow({ assignment, refresh }) {
         <td>
           <FaIcons.FaTrash
             data-bs-toggle="modal"
-            data-bs-target="#deleteModal"
+            data-bs-target={`#deleteModal-${assignment.assignment_id}`}
           />
           <DeleteModal target_id={assignment.assignment_id} />
         </td>

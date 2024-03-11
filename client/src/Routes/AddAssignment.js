@@ -7,21 +7,15 @@ function AddAssignment() {
 
   const navigate = useNavigate();
 
-  // what to do when submitting assignment w/questions
   const onSubmitForm = async (e, body) => {
     e.preventDefault();
     try {
-      console.log(body);
       const response = await fetch("http://localhost:5000/api/add-assignment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      console.log("sent!");
-      console.log(response);
       if (response.ok) {
-        console.log(response.body);
-        console.log(response.body.id);
         const responseData = await response.json();
         navigate(`/class/${class_id}/assignment/${responseData.id}`);
       } else {

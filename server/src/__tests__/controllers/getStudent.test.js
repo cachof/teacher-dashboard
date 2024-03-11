@@ -21,9 +21,9 @@ it("should send status code of 200 when student is returned", async () => {
   // Fake result data
   fakeStudent = {
     id: 123,
-    first_name: "Fatima",
-    last_name: "Cacho",
-    dob: "11/20/1996",
+    first_name: "Jane",
+    last_name: "Doe",
+    dob: "01/01/2000",
     class_id: 456,
   };
 

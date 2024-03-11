@@ -4,14 +4,14 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
-  Link,
   Outlet,
   createRoutesFromElements,
+  Navigate
 } from "react-router-dom";
 import "./App.css";
 import AddStudent from "./Routes/AddStudent.js";
 import ViewClass from "./Routes/ViewClass.js";
-import Home from "./Routes/Home";
+// import Home from "./Routes/Home";
 import Navbar from "./components/Navbar.js";
 import ViewStudent from "./Routes/ViewStudent.js";
 import ViewAssignments from "./Routes/ViewAssignments.js";
@@ -29,7 +29,7 @@ const AppLayout = () => (
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<AppLayout />}>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<ViewClass />} />
       <Route path="/class/:class_id" element={<ViewClass />} />
       <Route
         path="/class/:class_id/student/:student_id"
@@ -53,7 +53,6 @@ const router = createBrowserRouter(
         element={<EditAssignment />}
       />
     </Route>
-    
   )
 );
 

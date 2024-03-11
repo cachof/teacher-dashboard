@@ -7,7 +7,6 @@ async function createStudentController(req, res) {
       "INSERT INTO students (first_name, last_name, dob, class_id) VALUES ($1, $2, $3, $4) RETURNING *",
       [first_name, last_name, dob, class_id]
     );
-
     res.json(newStudent.rows[0]);
     res.status(201);
   } catch (error) {
