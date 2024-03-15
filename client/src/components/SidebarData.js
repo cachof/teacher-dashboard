@@ -1,6 +1,11 @@
+/*
+The SidebarData constant in React provides an array of objects, each representing a
+navigation link in the sidebar. Each object has properties for the link title, path,
+associated icon, and a custom class name for styling.
+*/
+
 import React from 'react';
 import * as FaIcons from "react-icons/fa";
-
 
 export const SidebarData = [
   {

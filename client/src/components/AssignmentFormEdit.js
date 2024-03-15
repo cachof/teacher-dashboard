@@ -1,20 +1,56 @@
+/*
+The AssignmentFormEdit component in React manages a form for editing assignments in a
+specific classroom. It incorporates React hooks like useState, useEffect, and useRef for
+state management and drag-and-drop functionality. Users can modify assignment details,
+including title, instructions, due date, and associated questions. The form supports
+drag-and-drop reordering of questions and allows toggling between draft and published
+status. Additionally, it provides options for saving changes and deleting the assignment.
+
+- AssignmentFormEdit: A React functional component handling the form for editing
+  assignments in a classroom.
+  - State:
+    - assignment: Manages details like title, instructions, due date, and published status.
+    - questionsList: Maintains a list of questions associated with the assignment.
+    - isPublished: Represents the published status of the assignment.
+  - Hooks:
+    - useState: Manages state variables for assignment, question details, and published status.
+    - useEffect: Updates state variables based on changes in assignmentData and questionsData.
+    - useRef: Facilitates drag-and-drop functionality for reordering questions.
+  - Functions:
+    - handleAssignmentAdd: Updates the 'assignment' state based on user input for assignment details.
+    - handleQuestionAdd: Adds a new question to the 'questionsList' state.
+    - handleQuestionChange: Updates question details in the 'questionsList' state.
+    - handleQuestionDelete: Removes a question from the 'questionsList' state.
+    - handleSort: Reorders questions during drag-and-drop.
+    - handleStatusChange: Toggles between draft and published status.
+    - onSubmitWrapper: Prepares the body and triggers the onSubmit function.
+  - Parameters:
+    - assignmentData: Data for pre-populating assignment fields during editing.
+    - questionsData: Data for pre-populating question fields during editing.
+    - onSubmit: Callback function for handling form submission.
+  - JSX Elements:
+    - Renders a form with fields for editing assignment details and a dynamic list of questions.
+    - Implements drag-and-drop for question reordering.
+    - Allows toggling between draft and published status.
+    - Provides buttons for saving changes and deleting the assignment.
+*/
 import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import DeleteModal from "./DeleteModal";
 
 function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
-
   // handle drag
   const dragQuestion = useRef(0);
   const draggedOverQuestion = useRef(0);
 
   const handleSort = () => {
-    const questionClone = [...questionsList]
-    const temp = questionClone[dragQuestion.current]
-    questionClone[dragQuestion.current] = questionClone[draggedOverQuestion.current]
-    questionClone[draggedOverQuestion.current] = temp
-    setQuestionsList(questionClone)
-  }
+    const questionClone = [...questionsList];
+    const temp = questionClone[dragQuestion.current];
+    questionClone[dragQuestion.current] =
+      questionClone[draggedOverQuestion.current];
+    questionClone[draggedOverQuestion.current] = temp;
+    setQuestionsList(questionClone);
+  };
 
   // get params
   let { class_id } = useParams();
@@ -57,7 +93,6 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
     setQuestionsList(questionsData);
   }, [questionsData]);
 
-
   // what to do when "Add Question" is clicked
   const handleQuestionAdd = (e) => {
     setQuestionsList([...questionsList, { ...initialQuestion }]);
@@ -91,7 +126,6 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
       ...prevAssignment,
       is_published: updatedIsPublished,
     }));
-
   };
 
   const onSubmitWrapper = (e) => {
@@ -119,7 +153,7 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
             type="button"
             class="btn btn-danger"
             data-bs-toggle="modal"
-            data-bs-target="#deleteModal"
+            data-bs-target={`#deleteModal-${assignment.assignment_id}`}
           >
             Delete
           </button>
@@ -198,8 +232,8 @@ function AssignmentFormEdit({ assignmentData, questionsData, onSubmit }) {
                 draggable
                 onDragStart={() => (dragQuestion.current = index)}
                 onDragEnter={() => (draggedOverQuestion.current = index)}
-                onDragEnd = {handleSort}
-                onDragOver = {(e) => e.preventDefault()}
+                onDragEnd={handleSort}
+                onDragOver={(e) => e.preventDefault()}
               >
                 <button className="btn btn-warning mt-4">Click to Drag</button>
                 <div className="first-division">

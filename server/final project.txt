@@ -1,0 +1,113 @@
+Final Report: Teacher Dashboard for Digital Classroom Economy
+By Fatima Cacho
+Introduction
+This project is geared towards the development of the Teacher Dashboard for a digital classroom economy. The overarching goal of a digital classroom economy aims to elevate student motivation, provide incentives for active participation, and foster an introduction to financial responsibility. The Teacher Dashboard serves as the central command center for the digital economy, helping streamline crucial aspects of classroom management. The current outcome of the project is an application that allows users (teachers) to create classes, add students to the classes, create assignments, edit assignments, and delete assignments.  
+Motivation
+The inspiration for this project originated from an application my husband and I created in 2020 to tackle the issues of classroom motivation during the initial return to school post-pandemic. The goal is to eventually overhaul the entire application by minimizing reliance on external platforms, such as the Google suite, and enhance the user experience. In this specific project, the primary focus was on the Teacher Dashboard. I chose to start with the Teacher Dashboard because the functionality of the student side of the classroom economy necessitated the creation of classrooms and assignments. Additionally, this project provided a chance to actively apply and expand my skills in web development.
+
+Tools and Technologies
+Prototyping: Google Slides
+Google Slides was used for prototyping the Teacher Dashboard to gain a deeper understanding of the connections between website components. The prototype ultimately helped with constructing the database and served as a visual aid for building the web pages.
+Version Control: Git/GitHub
+Git/GitHub was employed to track changes made to the code over time.
+IDE: Visual Studio Code
+Visual Studio Code was used to write, edit, and debug code.
+Front-End (User Interface): React
+React was utilized to create the user-interface/frontend of the project.
+Kinto Formbuilder was employed to easily build and customize forms.
+Back-End (server side): Node.js, Express
+Node.js was used to execute Javascript code on the server side.
+Express, the web application framework for Node.js, handled HTTP requests.
+Database: PostgreSQL
+PostgreSQL served as the project’s relational database management system, storing and managing website data.
+Testing: Jest
+Jest was used for unit testing to identify and address potential bugs or errors.
+Work Completed
+Compared to my final Project Plan, the final outcome closely aligns with my envisioned design. I was able to learn and utilize PostgreSQL for my database. The "teacher_dashboard" database establishes several tables to manage data related to teachers, classes, students, assignments, and questions. These tables include "Teachers," "Classes," "Students," "Assignments," and "Questions."
+In the "Teachers" table, information such as teacher ID, first name, and last name is stored. The "Classes" table tracks details about classes, including class ID, topic, and the corresponding teacher ID from the "Teachers" table. Student data, including student ID, first name, last name, date of birth, and the associated class ID, is stored in the "Students" table. Assignments are managed in the "Assignments" table, which includes assignment ID, title, instructions, due date, publication status, and the class ID to which the assignment belongs. The "Questions" table contains information about questions for assignments, including question ID, question text, correct answer, point value, and the assignment ID to which the question pertains.
+Regarding the front and back end of the Teacher Dashboard, I effectively utilized React for the front end and Node.js and Express for the back end. The Teacher Dashboard's side menu encompasses all the menu items outlined in the project plan: View Class, Add Student, View Assignments, and Add Assignments, with the added capability of being displayed and hidden as needed.
+The Classroom element allows users to access the class roster, individual student details, and add new students. On the Class View Page, users can gain an overview of student accounts, although certain data such as rent payment and recent transactions remain static and hardcoded, pending development on the Student side of the classroom economy. Navigating to individual student profiles is easy, where users can find additional detailed information like payment history and account balance, which are also static and hardcoded pending further development on the Student side. Additionally, the process of adding new students via the "New Student" page is fully functional. 
+Similarly, the Assignments section meets the project plan. Users can create, edit, display, and delete assignments. The All Assignments Page presents a clear overview of all assignments, allowing users to easily track due dates and statuses. Creating assignments via the “Add Assignment” page is intuitive, with clearly labeled input fields and the ability to add new questions. Updating assignments via the “Edit Assignment” page works similarly to creating an assignment, as users are able to modify various details including title, due date, instructions, questions, and value. Assignments can be deleted from the View Assignments page or within the individual assignment page. 
+Additionally, I verified the functionality of all API requests through both manual testing and unit testing using the Jest testing framework. Through these tests I was able to ensure reliability across the system. I removed unnecessary comments, logging for debugging, and provided summaries to my codebase in an effort to enhance readability and maintainability of the codebase. 
+
+
+
+
+
+
+
+Change Management
+I relied on the structured change management process to steer through the challenges and adjustments that emerged along the way. Here's how I integrated this process into managing the major changes that occurred, first addressing and major changes that required instructor approval, then minor changes:
+Reducing Scope (Major):
+When my instructor suggested that my project scope might have been too ambitious, I recognized the importance of reassessing and refining my objectives. Leveraging the change management process, I carefully evaluated the feedback and revised the scope according to my instructor’s advice, which was to fully build out two major features rather than three. This involved communicating the adjustments with my instructor and updating the project plan accordingly. By following this process, I ensured that the revised scope remained focused and achievable.
+Dropping Styling (Major):
+In the face of unforeseen life circumstances, I leveraged the change management process to negotiate a major change in project direction. Communicating with my instructor about the challenges I faced, I obtained permission to forgo extensive styling efforts and focus on core functionality instead. This major adjustment highlighted the importance of effective communication in managing project constraints.
+Side Menu Instead of Homepage (Minor):
+Opting for a side menu layout over a homepage was a minor adjustment that required minimal disruption to the project's overall trajectory. Despite its minor nature, I utilized the change management process to document the rationale behind the decision and communicate the change with collaborators. This ensured transparency and alignment, even for seemingly insignificant alterations.
+Moving Away From Figma (Minor):
+When I encountered challenges with Figma, I leveraged the change management process to explore alternative solutions. Documenting the issues faced with Figma, I communicated the decision to switch to Google Slides for design purposes. Although this change was minor in nature, it showcased the importance of adaptability and responsiveness in addressing project challenges.
+Moving Away From Kinto Formbuilder (Minor):
+Similarly, when issues arose with Kinto Formbuilder, I utilized the change management process to identify a more suitable alternative. Documenting the limitations of Kinto Formbuilder and the rationale for transitioning to React for form development, I ensured alignment with project goals and objectives. This minor adjustment underscored the significance of flexibility in overcoming obstacles during project execution.
+By integrating the change management process into my project management approach, I successfully navigated the complexities of change while maintaining alignment with project goals and stakeholder expectations. Each decision, whether major or minor, was carefully documented, communicated, and implemented, ensuring adaptability and resilience in the face of challenges.
+
+
+
+Retrospective
+A one- to two-page discussion about lessons learned from carrying out your work as a structured project. The intent is not to focus as much on specific obstacles encountered by using particular tools or technologies. Instead, you should emphasize what learnings will positively influence your future projects from activities like organizing your work, reporting progress, managing changes, and delivering final results. For this section, here are some questions to consider, but you not are limited to these:
+How well did you accomplish your initial Project Plan (or the final version, if it changed during the course)?
+I nailed it
+What were your successes?
+Detailed project plan
+Dedicated time to learning
+What were your challenges?
+Which key practices worked well that you would continue to follow on future projects?
+Following instructors advice to reduce scope
+The amount of detail in my project plan
+Realistic weekly expectations
+Setting aside time to do the work
+Building small projects to better understand how to implement into my system
+Which techniques would you start doing on future projects that you did not do on this project?
+Making my tests as i complete a component
+Maintaining consistency in variable names
+Adding summaries to functions and pages as they are made
+Which practices would you stop doing because they were ineffective for you?
+Following tutorials that were over a year old, even if they were specific to what i needed, i often ran into errors of not having the correct dependencies
+
+
+What approaches would you change or do differently on future projects?
+Test regularly
+Clean up codebase regularly
+Commit regularly 
+
+
+Throughout this project journey, I've gained many insights into effective project management practices, shaping my understanding of how to navigate the complexities of structured work. My project plan meticulously outlined the project's scope, milestones, and deliverables. The large amount of detail not only provided clarity but also instilled a sense of direction, and removed stress, as I knew what I needed to get done every week. 
+
+One of the key successes of this endeavor was the adherence to the project plan, which facilitated smooth progress and minimized deviations from the intended path. By breaking down the project into manageable tasks and setting realistic timelines, I was able to maintain momentum and make steady strides towards achieving the project's objectives. Additionally, dedicating ample time to learning and familiarizing myself with the technologies and methodologies required for the project proved to be invaluable. This investment in learning not only equipped me with the necessary skills but also imbued me with the confidence to tackle challenges head-on.
+
+However, as with any project, there were challenges to contend with along the way. One notable challenge was reconciling the initial project scope with the constraints of time and resources. Despite meticulous planning, there were instances where unforeseen hurdles arose, necessitating adjustments to the project plan. In such instances, the ability to adapt and pivot proved to be essential, allowing me to navigate through uncertainties and find viable solutions.
+
+Amidst the challenges, several key practices emerged as instrumental contributors to project success. Firstly, the level of detail embedded within the project plan played a crucial role in managing complexities and mitigating risks. By meticulously outlining each task and its corresponding timeline, I was able to maintain a clear roadmap for project execution. Additionally, establishing realistic weekly expectations and setting aside dedicated time for project work proved to be effective strategies for managing workload and ensuring consistent progress. This structured approach not only fostered accountability but also helped in maintaining focus amidst competing priorities.
+
+Moreover, the process of building small projects to better understand implementation intricacies proved to be a valuable learning experience. By breaking down complex concepts into manageable chunks and implementing them in isolation, I gained a deeper understanding of how different components interact within the larger system. This hands-on approach not only enhanced my technical skills but also bolstered my problem-solving abilities, enabling me to tackle challenges with confidence.
+
+Looking ahead, there are several techniques and practices that I intend to adopt in future projects to further enhance efficiency and effectiveness. Firstly, I plan to adopt a practice of creating tests as I complete each component. This iterative approach to testing promises to streamline the debugging process and improve overall code quality. Additionally, maintaining consistency in variable names and adding summaries to functions and pages as they are created will contribute to codebase readability and maintainability.
+
+Reflecting on my experience, I recognize the need to discontinue certain practices that proved to be ineffective or counterproductive. One such practice was relying on outdated tutorials, which often led to dependency issues and complicated the debugging process. In future projects, I aim to prioritize using up-to-date resources and documentation to avoid such pitfalls.
+
+In terms of approaches to change or do differently on future projects, I plan to adopt a more proactive approach to testing and codebase maintenance. By testing regularly and cleaning up the codebase on a consistent basis, I aim to minimize technical debt and ensure the long-term sustainability of future projects. Additionally, committing changes regularly will serve to enhance collaboration and version control, facilitating smoother project progression.
+
+In conclusion, this project has been a valuable learning experience, providing insights into effective project management practices and shaping my approach to future endeavors. By leveraging successes, addressing challenges, and embracing key practices, I am confident in my ability to deliver impactful results in future projects.
+
+
+Conclusion
+A one- to two-paragraph summary of the project and product (without it just being a rehash of all that came before)? The emphasis should be on the results achieved, not future plans to evolve what you just completed.
+In conclusion, this project represents not only the successful execution of a comprehensive design plan but also a testament to the efficacy of diligent learning and implementation. Through the strategic utilization of React, Node.js, and Express for the front and back end of the Teacher Dashboard, alongside meticulous attention to detail in database architecture, I've delivered a solution that not only meets project specifications but also sets the stage for future scalability and refinement. With thorough testing and code optimization, I've ensured the reliability and maintainability of the system, laying a strong foundation for its continued evolution.
+
+
+
+
+
+
+. 
+
+

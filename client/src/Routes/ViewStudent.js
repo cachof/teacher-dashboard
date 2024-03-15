@@ -1,3 +1,32 @@
+/*
+The ViewStudent component in React is designed to display detailed information
+about a specific student within a classroom. It utilizes React hooks like useState,
+useEffect, and useParams to manage state, handle side effects, and retrieve URL parameters.
+The component fetches student data from the server using the "getStudent" function on
+component mount. The displayed information includes the student's first and last name,
+financial details, and a transaction history table. Users have the option to delete
+the student by clicking the "Delete Student" button.
+
+- ViewStudent: React functional component responsible for displaying detailed
+  information about a specific student within a classroom.
+  - State:
+    - student: Holds an array of student data fetched from the server.
+  - Hooks:
+    - useEffect: Invokes the "getStudent" function when the component mounts, ensuring
+      data retrieval.
+  - Functions:
+    - deleteStudent: Sends a DELETE request to the server to delete the student and
+      navigates to the class page upon success.
+    - getStudent: Asynchronously fetches student data from the server and updates
+      the 'student' state.
+  - Parameters:
+    - None
+  - JSX Elements:
+    - Displays a table with detailed student information, including financial details
+      and a transaction history.
+    - Provides a button to delete the student, triggering the "deleteStudent" function.
+*/
+
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 

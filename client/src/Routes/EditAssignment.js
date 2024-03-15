@@ -1,31 +1,29 @@
 /*
-Page Summary:
-The ViewOneAssignment component in React is designed to show specific details of
-an assignment within a classroom. It uses React hooks like useState and useEffect
-to handle data and side effects. The component fetches assignment and question
-data from the server using the "getAssignmentAndQuestions" function when it loads.
-The displayed information includes the assignment title, instructions, due date,
-and associated questions. Users can also edit the assignment details.
+The EditAssignment component in React facilitates the editing of assignment
+details within a specific classroom. It uses React hooks like useState and useEffect
+to manage state and handle side effects. The component fetches assignment and
+question data from the server using the "getAssignmentAndQuestions" function when
+it loads. Users can edit assignment details through a form, and updates are sent
+to the server using the "onSubmitForm" function upon submission.
 
-Function Summary:
-- ViewOneAssignment: React functional component responsible for showing details
-  of a specific assignment within a classroom.
+- EditAssignment: React functional component responsible for editing assignment
+  details within a specific classroom.
   - State:
-    - questions: Holds questions linked to the assignment.
-    - assignment: Stores details of the viewed assignment.
+    - questions: Holds questions associated with the assignment.
+    - assignment: Stores details of the assignment being edited.
   - Hooks:
     - useEffect: Triggers the "getAssignmentAndQuestions" function to retrieve
       assignment and question data when the component loads.
   - Functions:
     - getAssignmentAndQuestions: Fetches assignment and question data from the
-      server and updates the state variables.
-    - formatDate: Converts a date object into a readable string.
+      server, updates the state variables, and formats the due date.
+    - onSubmitForm: Sends a PUT request to the server to update assignment details
+      and navigates to the view assignment page upon success.
   - Parameters:
     - None
   - JSX Elements:
-    - Displays assignment details like title, instructions, and due date.
-    - Provides a button to navigate to the assignment editing page.
-    - Uses a QuestionsTable component to show associated questions.
+    - Renders the AssignmentFormEdit component, providing assignment and question
+      data along with a callback function for form submission.
 */
 
 import React, { useEffect, useState } from "react";

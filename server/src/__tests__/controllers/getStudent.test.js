@@ -1,3 +1,10 @@
+/*
+- Verifies getStudentController functionality by retrieving a student.
+- Checks if correct database query is made and response matches expectations.
+  Validates getStudentController behavior, ensuring accurate retrieval
+  of student details and response.
+*/
+
 const pool = require("../../../db");
 const { getStudentController } = require("../../controllers/getStudent");
 
@@ -13,6 +20,7 @@ it("should send status code of 200 when student is returned", async () => {
     },
   };
 
+  // Response mock
   const responseMock = {
     status: jest.fn((x) => x),
     json: jest.fn((x) => x),

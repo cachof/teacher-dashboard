@@ -1,5 +1,4 @@
 /*
-Page Summary:
 This React component, named ViewClass, is responsible for displaying information
 about students in a classroom. It utilizes React hooks such as useState and
 useEffect to manage state and handle side effects. The component fetches student
@@ -10,7 +9,6 @@ a student, with details like student ID, name, rent status, cost, and the latest
 account activity. Additionally, a button is provided to navigate to the "Add
 Student" page for the specific class.
 
-Function Summary:
 - ViewClass: React functional component responsible for rendering the student
   information in a classroom.
   - State:

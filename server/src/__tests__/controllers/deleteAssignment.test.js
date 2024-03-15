@@ -1,5 +1,14 @@
+/*
+- Verifies deleteAssignmentController functionality by simulating assignment deletion.
+- Checks if correct database query is made and response matches expectations.
+  Validates deleteAssignmentController behavior, ensuring accurate assignment deletion
+  and response.
+*/
+
 const pool = require("../../../db");
-const { deleteAssignmentController } = require("../../controllers/deleteAssignment");
+const {
+  deleteAssignmentController,
+} = require("../../controllers/deleteAssignment");
 
 // Enable ability to mock DB calls
 jest.mock("../../../db");

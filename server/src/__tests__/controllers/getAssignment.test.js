@@ -1,3 +1,10 @@
+/*
+- Verifies getAssignmentController functionality by retrieving an assignment with questions.
+- Checks if correct database queries are made and response matches expectations.
+  Validates getAssignmentController behavior, ensuring accurate retrieval
+  of assignment details and associated questions, and response.
+*/
+
 const { response } = require("express");
 const pool = require("../../../db");
 const { deleteStudentController } = require("../../controllers/deleteStudent");
@@ -89,7 +96,7 @@ it("should send status 200 when assignment with questions is returned", async ()
     [assignmentRequest.params.id]
   );
 
-  expect(responseMock.json).toHaveBeenCalledWith(fakeResult)
+  expect(responseMock.json).toHaveBeenCalledWith(fakeResult);
 
   expect(responseMock.status).toHaveBeenCalledWith(200);
 });

@@ -1,3 +1,17 @@
+/*
+createAssignment handles the creation of assignments in a database.
+  - Extracts necessary data such as assignment title, instructions, due date,
+    publication status, class ID, and a list of questions from the request body.
+  - Inserts the assignment data into the database, retrieves the newly created
+    assignment, and logs relevant information.
+  - Proceeds to insert multiple questions associated with the assignment into
+    the database.
+  - Sends a response indicating the success of the operation along with the ID
+    of the newly created assignment.
+  - Logs any errors that occur during the process.
+  - Exported for use by other parts of the application.
+*/
+
 const pool = require("../../db");
 
 async function createAssignmentController(req, res) {
@@ -36,11 +50,12 @@ async function createAssignmentController(req, res) {
     });
 
     await Promise.all(insertQuestions);
-    
+
     res.status(201);
     res.json({ id: newAssignment.assignment_id });
   } catch (error) {
     console.error(error.message);
-  } }
+  }
+}
 
-  module.exports = { createAssignmentController };
+module.exports = { createAssignmentController };

@@ -1,6 +1,12 @@
+/*
+- Verifies createStudentController functionality by simulating student creation.
+- Checks if correct database queries are made and response matches
+  expectations. Validates createStudentController behavior, ensuring
+  accurate student creation and response.
+*/
+
 const pool = require("../../../db");
 const { createStudentController } = require("../../controllers/createStudent");
-
 
 // Enable ability to mock DB calls
 jest.mock("../../../db");

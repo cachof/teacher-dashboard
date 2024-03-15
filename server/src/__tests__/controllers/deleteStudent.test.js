@@ -1,3 +1,10 @@
+/*
+- Verifies deleteStudentController functionality by simulating student deletion.
+- Checks if correct database query is made and response matches expectations.
+  Validates deleteStudentController behavior, ensuring accurate student deletion
+  and response.
+*/
+
 const pool = require("../../../db");
 const { deleteStudentController } = require("../../controllers/deleteStudent");
 
@@ -17,17 +24,16 @@ it("should send status code of 200 when student is deleted", async () => {
     json: jest.fn((x) => x),
   };
 
-  await deleteStudentController(deleteStudentRequest, responseMock)
+  await deleteStudentController(deleteStudentRequest, responseMock);
 
   // Assertions
 
   // pool.query assertion
-   expect(pool.query).toHaveBeenCalledWith(
-     "DELETE FROM students where student_id = $1",
-     [deleteStudentRequest.params.id]
-   );
+  expect(pool.query).toHaveBeenCalledWith(
+    "DELETE FROM students where student_id = $1",
+    [deleteStudentRequest.params.id]
+  );
 
   // responseMock.status should receive 1 call with 200 status
   expect(responseMock.status).toHaveBeenCalledWith(200);
-
-})
+});

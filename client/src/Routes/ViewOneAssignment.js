@@ -1,5 +1,4 @@
 /*
-Page Summary:
 The React component ViewOneAssignment is designed to display details of a specific
 assignment within a classroom. It utilizes React hooks such as useState and useEffect
 to manage state and handle side effects. The component fetches assignment and
@@ -8,7 +7,6 @@ triggered on component mount. The fetched data includes assignment details, such
 title, instructions, and due date, along with associated questions. The page presents
 this information, allowing users to view and edit the assignment.
 
-Function Summary:
 - ViewOneAssignment: React functional component responsible for displaying details
   of a specific assignment within a classroom.
   - State:

@@ -1,5 +1,42 @@
+/*
+The AssignmentForm component in React is responsible for managing the form used to
+add or edit assignments in a specific classroom. It employs React hooks such as useState
+and useRef for state management and drag-and-drop functionality. The component allows
+users to input assignment details, such as title, instructions, due date, and question
+information. Users can also toggle between draft and published status. The form supports
+multiple questions, enabling the creation of comprehensive assignments.
+
+- AssignmentForm: React functional component managing the form for adding or editing
+  assignments in a classroom.
+  - State:
+    - assignment: Holds assignment details like title, instructions, due date, and
+      published status.
+    - questionsList: Manages a list of questions associated with the assignment.
+  - Hooks:
+    - useState: Manages state variables for assignment and question details.
+    - useRef: Facilitates drag-and-drop functionality for reordering questions.
+  - Functions:
+    - handleAssignmentAdd: Updates the 'assignment' state based on user input for
+      assignment details.
+    - handleQuestionAdd: Adds a new question to the 'questionsList' state.
+    - handleQuestionChange: Updates question details in the 'questionsList' state.
+    - handleQuestionDelete: Removes a question from the 'questionsList' state.
+    - handleSort: Reorders questions when drag-and-drop is performed.
+    - handleStatusChange: Toggles between draft and published status.
+    - onSubmitWrapper: Prepares the body and triggers the onSubmit function.
+  - Parameters:
+    - assignmentData: Data for pre-populating assignment fields when editing.
+    - questionsData: Data for pre-populating question fields when editing.
+    - onSubmit: Callback function for handling form submission.
+  - JSX Elements:
+    - Renders a form with fields for assignment details and a dynamic list of questions.
+    - Supports drag-and-drop functionality for question reordering.
+    - Allows toggling between draft and published status.
+    - Provides buttons for adding, editing, and deleting questions.
+*/
+
 import React, { useState, useRef } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
   // get params
@@ -36,7 +73,6 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
       ...prevAssignment,
       [name]: value,
     }));
-    console.log(assignment);
   };
 
   // question template
@@ -79,7 +115,6 @@ function AssignmentForm({ assignmentData, questionsData, onSubmit }) {
       ...prevAssignment,
       is_published: updatedIsPublished,
     }));
-
   };
 
   const onSubmitWrapper = (e) => {

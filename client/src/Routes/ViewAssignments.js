@@ -1,5 +1,4 @@
 /*
-Page Summary:
 The React component ViewAssignments is responsible for displaying assignments,
 utilizing the AssignmentTable component to render the assignments in a table format.
 It fetches assignment data from the server through the getAssignments function,
@@ -7,7 +6,6 @@ which is triggered when the component mounts. The fetched data is stored in the
 'assignments' state and passed as props to the AssignmentTable component. The page
 features two sections, one for published assignments and another for drafts.
 
-Function Summary:
 - ViewAssignments: React functional component rendering assignments in a table.
   - State:
     - assignments: Holds an array of assignment data fetched from the server.

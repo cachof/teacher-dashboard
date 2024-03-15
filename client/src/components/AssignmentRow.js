@@ -1,3 +1,31 @@
+/*
+The AssignmentRow component in React represents a row in a table displaying assignment
+details. It utilizes React Router for navigation and React Icons (FontAwesome) for edit
+and delete functionalities. The component provides links to view, edit, and delete
+assignments, along with assignment title, status, due date, and action icons. Additionally,
+it includes a DeleteModal component for confirming deletion.
+
+- AssignmentRow: React functional component rendering a row in a table for displaying
+  assignment details.
+  - State:
+    - assignments: Manages the state for assignment data (currently unused).
+  - Hooks:
+    - useState: Manages state variables.
+    - useParams: Retrieves parameters from the current URL.
+    - useNavigate: Provides programmatic navigation functionality.
+  - Functions:
+    - formatDate: Formats the due date of an assignment.
+    - getStatus: Determines the status of an assignment (Past Due, Published, Draft).
+  - Parameters:
+    - assignment: Data representing the assignment for display.
+    - refresh: Callback function for refreshing assignment data (currently unused).
+  - JSX Elements:
+    - Renders a table row with assignment details and action icons.
+    - Provides links to view, edit, and delete assignments using React Router.
+    - Utilizes FontAwesome icons for edit and delete actions.
+    - Includes a DeleteModal for confirming assignment deletion.
+*/
+
 import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";

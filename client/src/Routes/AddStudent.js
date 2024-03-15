@@ -6,7 +6,6 @@ and date of birth. The form submission triggers the onSubmitForm function, which
 sends a POST request to the server to add the new student. Upon successful
 addition, the user is redirected to the view class page for the respective class.
 
-Function Summary:
 - AddStudent: React functional component responsible for adding a new student to
   a specific classroom.
   - State:

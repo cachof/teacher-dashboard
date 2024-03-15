@@ -1,3 +1,10 @@
+/*
+- Verifies getAllAssignmentsController functionality by retrieving all assignments.
+- Checks if correct database query is made and response matches expectations.
+  Validates getAllAssignmentsController behavior, ensuring accurate retrieval
+  of assignments and response.
+*/
+
 const pool = require("../../../db");
 const {
   getAllAssignmentsController,
@@ -61,4 +68,4 @@ it("should send status code 200 when all assignments are returned", async () => 
 
   // responseMock.status should receive 1 call with 200 status code
   expect(responseMock.status).toHaveBeenCalledWith(200);
-})
+});

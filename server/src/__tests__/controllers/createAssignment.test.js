@@ -1,3 +1,11 @@
+/*
+- Verifies createAssignmentController functionality by simulating assignment
+  creation.
+- Checks if correct database queries are made and response matches
+  expectations. Validates createAssignmentController behavior, ensuring
+  accurate assignment creation and response.
+*/
+
 const pool = require("../../../db");
 const {
   createAssignmentController,

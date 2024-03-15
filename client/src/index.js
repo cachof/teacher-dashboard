@@ -11,7 +11,6 @@ import {
 import "./App.css";
 import AddStudent from "./Routes/AddStudent.js";
 import ViewClass from "./Routes/ViewClass.js";
-// import Home from "./Routes/Home";
 import Navbar from "./components/Navbar.js";
 import ViewStudent from "./Routes/ViewStudent.js";
 import ViewAssignments from "./Routes/ViewAssignments.js";

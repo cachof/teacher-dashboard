@@ -1,3 +1,22 @@
+/*
+The AssignmentTable component in React is responsible for displaying a table of assignments
+related to a specific class. It utilizes React Router for navigation and includes an
+AssignmentRow component for rendering individual assignment details. The table provides
+information such as assignment title, status, due date, and action icons for edit and delete.
+Additionally, a button is available to add a new assignment.
+
+- AssignmentTable: React functional component for rendering a table of assignments.
+  - Parameters:
+    - assignments: An array of assignment objects to be displayed.
+    - refreshAssignments: Callback function for refreshing assignment data.
+  - Hooks:
+    - useParams: Retrieves parameters from the current URL.
+  - JSX Elements:
+    - Displays a table with columns for Assignment Title, Status, Due Date, and Action Icons.
+    - Maps through the 'assignments' array to render individual AssignmentRow components.
+    - Provides a button to add a new assignment, linked to the Add Assignment page.
+*/
+
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
