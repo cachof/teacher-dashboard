@@ -83,6 +83,7 @@ function ViewStudent() {
                 <h1 className="text-start">
                   {student.first_name} {student.last_name}
                 </h1>
+                <h2 className="text-start">RENT PAID</h2>
               </th>
               <th></th>
               <th>

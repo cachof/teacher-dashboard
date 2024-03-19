@@ -61,6 +61,7 @@ function ViewClass() {
             <tr>
               <th>Student ID</th>
               <th>Student Name</th>
+              <th>Taxes</th>
               <th>Rent</th>
               <th>$</th>
               <th>Latest Account Activity</th>
@@ -77,6 +78,7 @@ function ViewClass() {
                     {student.first_name} {student.last_name}
                   </Link>
                 </td>
+                <td>Yes</td>
                 <td>Yes</td>
                 <td>$70</td>
                 <td>Attendance 1/10/2024</td>
