@@ -64,13 +64,6 @@ INSERT INTO Assignments (assignment_title, instructions, due_date, is_published,
 VALUES ('Addition', 'Use addition to answer these questions', '2024-01-09', true, 1
     );
 
-INSERT INTO Assignments (assignment_title, instructions, due_date, is_published, class_id)
-VALUES ('Subtraction', 'Use Subtraction to answer these questions', '2025-01-09', true, 1
-    );
-
-INSERT INTO Assignments (assignment_title, instructions, due_date, is_published, class_id)
-VALUES ('Division', 'Use Division to answer these questions', '2024-05-09', false, 1);
-
 INSERT INTO Questions(question_text, correct_answer, point_value, assignment_id)
 VALUES
     ('10 x 3', '30', '5', 
